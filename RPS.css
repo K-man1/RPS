@@ -75,3 +75,7 @@ button:hover {
     cursor: pointer;
     z-index: 10;
 }
+
+p{
+    font-size: 30px;
+}

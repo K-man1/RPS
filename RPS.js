@@ -23,8 +23,8 @@ const subheading = document.getElementById("subheading")
 let userPoints = document.getElementById("userPoints")
 let compPoints = document.getElementById("compPoints")
 let paragraph = document.createElement("p")
-const win = document.createTextNode("You won!") 
-const tie = document.createTextNode("Tied!") 
+const win = document.createTextNode("You won!")
+const tie = document.createTextNode("Tied!")
 const loss = document.createTextNode("You lost...")
 const end = document.createTextNode("Click a button")
 let numOfCompWins = 0
@@ -32,64 +32,55 @@ let numOfUserWins = 0
 
 
 // Alpha Version
-function compInput () {
-const option = ["rock", "paper", "scissors"]
-let random = Math.floor(Math.random() * 3)
-return option[random]
-} 
-
-
-
-
-
-
-function resultGenerator(userInput, compInput){
-    if (userInput == compInput){
-        paragraph.appendChild(tie)
-    container.appendChild(paragraph)
-    }
-    else if (
-        (userInput == "rock" && compInput=="scissors")
-        ||
-        (userInput == "paper" && compInput == "rock")
-        ||
-        (userInput == "scissors" && compInput == "paper"))
-        {
-            numOfUserWins++
-    userPoints.textContent = numOfUserWins;
-    paragraph.appendChild(win)
-    container.appendChild(paragraph)
-
-    if (numOfUserWins == 5){
-        options.style.display = "none"
-        subheading.textContent = "You won! 🥳"
-        subheading.style.color = "green"
-        reset.style.display = "block"
-        
-        confettis.style.visibility = 'visible';
-        
-
-        }
+function compInput() {
+    const option = ["rock", "paper", "scissors"]
+    let random = Math.floor(Math.random() * 3)
+    return option[random]
 }
 
-    
-        
-    else{
-    numOfCompWins++
-    compPoints.textContent = numOfCompWins;
-    paragraph.appendChild(loss)
-    container.appendChild(paragraph)}
 
-    if (numOfCompWins == 5){
+
+
+function resultGenerator(userInput, compInput) {
+    if (userInput == compInput) {
+        paragraph.appendChild(tie)
+        container.appendChild(paragraph)
+    } else if (
+        (userInput == "rock" && compInput == "scissors") ||
+        (userInput == "paper" && compInput == "rock") ||
+        (userInput == "scissors" && compInput == "paper")) {
+        numOfUserWins++
+        userPoints.textContent = numOfUserWins;
+        paragraph.appendChild(win)
+        container.appendChild(paragraph)
+
+        if (numOfUserWins == 5) {
+            options.style.display = "none"
+            subheading.textContent = "You won! 🥳"
+            subheading.style.color = "green"
+            reset.style.display = "block"
+
+            confettis.style.visibility = 'visible';
+
+
+        }
+    } else {
+        numOfCompWins++
+        compPoints.textContent = numOfCompWins;
+        paragraph.appendChild(loss)
+        container.appendChild(paragraph)
+    }
+
+    if (numOfCompWins == 5) {
         options.style.display = "none"
         subheading.textContent = "You lost! 😢"
         subheading.style.color = "maroon"
         reset.style.display = "block"
-        }
+    }
 }
-reset.addEventListener("click",function() {
-    numOfUserWins=0
-    numOfCompWins=0
+reset.addEventListener("click", function() {
+    numOfUserWins = 0
+    numOfCompWins = 0
     compPoints.textContent = numOfCompWins;
     userPoints.textContent = numOfUserWins;
     paragraph.textContent = "";
@@ -101,24 +92,26 @@ reset.addEventListener("click",function() {
 
 })
 
-rock.addEventListener('click',function() {
+rock.addEventListener('click', function() {
     paragraph.textContent = "";
     x = compInput()
-    resultGenerator("rock",x)
+    resultGenerator("rock", x)
 })
-paper.addEventListener('click',function() {
+paper.addEventListener('click', function() {
     paragraph.textContent = "";
     x = compInput()
-    resultGenerator("paper",x)
+    resultGenerator("paper", x)
 })
-scissors.addEventListener('click',function() {
+scissors.addEventListener('click', function() {
     paragraph.textContent = "";
     x = compInput()
-    resultGenerator("scissors",x)
+    resultGenerator("scissors", x)
 })
 
 
-var confettiSettings = { target: 'my-canvas' };
+var confettiSettings = {
+    target: 'my-canvas'
+};
 var confetti = new ConfettiGenerator(confettiSettings);
 confetti.render();
 let confettis = document.querySelector("#my-canvas")
@@ -143,14 +136,14 @@ let confettis = document.querySelector("#my-canvas")
 //     compPoints.textContent = numOfCompWins;
 //     paragraph.appendChild(loss)
 //     container.appendChild(paragraph)}
-    
+
 
 //     else if (x == "scissors"){
 //         numOfUserWins++
 //     userPoints.textContent = numOfUserWins;
 //     paragraph.appendChild(win)
 //     container.appendChild(paragraph)}
-    
+
 // })
 
 // paper.addEventListener('click',function() {
@@ -191,6 +184,6 @@ let confettis = document.querySelector("#my-canvas")
 //     if (x == "scissors"){
 //     paragraph.appendChild(tie)
 //     container.appendChild(paragraph)}
-    
+
 
 // })}
