@@ -117,4 +117,8 @@ p{
     #options {
         gap: 10px;
     }
+
+    p {
+        font-size: 25px;
+    }
 }
