@@ -44,7 +44,6 @@ button:hover {
 
 
 #points {
-    
     display: flex;
     gap: 400px;
     margin-top: 20px;
@@ -80,7 +79,16 @@ p{
     font-size: 30px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    #points{
+        gap:70px
+    }
+    p {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 425px) {
     h1 {
         font-size: 32px;
     }
@@ -112,6 +120,9 @@ p{
         gap: 10px;
         font-size: 20px;
         padding: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     #options {
